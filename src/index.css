@@ -1,111 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* =========================
+   Tailwind v4 Theme Configuration
+   These create utility classes like:
+   - text-primary, bg-primary, border-primary
+   - text-secondary, bg-secondary
+   - font-primary, font-button
+========================= */
+
+@theme {
+  /* Fonts */
+  --font-primary: "Work Sans", sans-serif;
+  --font-button: "Inter", sans-serif;
+
+  /* Colors */
+  --color-primary: #5937e0;
+  --color-secondary: #ff9e0c;
+  --color-background: #ffffff;
+  --color-gray-custom: #fafafa;
+
+  /* Border Radius */
+  --radius-button: 20px;
+
+  /* Custom Animations */
+  --animate-fade-in-down: fadeInDown 0.8s ease-out both;
+  --animate-fade-in-right: fadeInRight 1s ease-out both;
+  --animate-car-float: carFloat 3s ease-in-out infinite;
+  --animate-track-slide: trackSlide 1.5s linear infinite;
+  --animate-track-slide-delayed: trackSlide 1.5s linear infinite 0.5s;
+  --animate-button-pulse: buttonPulse 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+
+  /* Keyframes */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes carFloat {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(-2deg);
+    }
+
+    50% {
+      transform: translateY(-15px) rotate(2deg);
+    }
+  }
+
+  @keyframes trackSlide {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(20px);
+    }
+  }
+
+  @keyframes buttonPulse {
+
+    0%,
+    100% {
+      box-shadow: 0 4px 20px rgba(89, 55, 224, 0.4);
+    }
+
+    50% {
+      box-shadow: 0 4px 40px rgba(89, 55, 224, 0.8);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+
+    100% {
+      background-position: 200% center;
+    }
+  }
+}
+
+/* =========================
+   CSS Variables (for use in inline styles / non-Tailwind CSS)
+========================= */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --font-primary: "Work Sans", sans-serif;
+  --font-button: "Inter", sans-serif;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --primary-color: #5937e0;
+  --secondary-color: #ff9e0c;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --background-color: #ffffff;
+  --gray-color: #fafafa;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --border-radius: 20px;
+
+  --container-padding: clamp(24px, 5vw, 72px);
+  --section-padding: clamp(40px, 4.17vw, 60px);
+
+  --button-padding-y: clamp(8px, 1.2vw, 10.5px);
+  --button-padding-x: clamp(20px, 2.5vw, 28px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* =========================
+   Reset
+========================= */
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
+html {
+  scroll-behavior: smooth;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+body {
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: #000000;
 }
+
+/* =========================
+   Typography
+========================= */
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-family: var(--font-primary);
+  font-size: clamp(40px, 4.17vw, 60px);
+  font-weight: 700;
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+  font-family: var(--font-primary);
+  font-size: clamp(36px, 3.47vw, 50px);
+  font-weight: 700;
+}
+
+h3 {
+  font-family: var(--font-primary);
+  font-size: clamp(24px, 1.94vw, 28px);
+  font-weight: 600;
+}
+
+h4 {
+  font-family: var(--font-primary);
+  font-size: clamp(20px, 1.67vw, 24px);
+  font-weight: 600;
+}
+
+h5 {
+  font-family: var(--font-primary);
+  font-size: clamp(18px, 1.39vw, 20px);
+  font-weight: 600;
+}
+
+h6 {
+  font-family: var(--font-primary);
+  font-size: clamp(14px, 1.11vw, 16px);
+  font-weight: 400;
+}
+
+/* =========================
+   Links
+========================= */
+
+a {
+  font-family: var(--font-primary);
+  font-size: clamp(18px, 1.39vw, 20px);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* =========================
+   Labels
+========================= */
+
+label {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.label-icon {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+button {
+  font-family: var(--font-button);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+}
+
+.section {
+  padding-block: var(--section-padding);
+}
+
+/* =========================
+   Animation Delays
+========================= */
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* =========================
+   Hover Animations
+========================= */
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hover-scale {
+  transition: all 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-rotate {
+  transition: all 0.3s ease;
+}
+
+.hover-rotate:hover {
+  transform: rotate(-5deg);
+}
+
+/* =========================
+   Accessibility - Reduced Motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
