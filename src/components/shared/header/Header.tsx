@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <header className='w-full'>
-            <section className='container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4'>
+            <div className='container mx-auto flex items-center justify-between gap-4' style={{paddingBlock: '24px'}}>
                 {/* Logo */}
                 <div className='shrink-0'>
                     <Logo />
@@ -49,7 +49,7 @@ const Header = () => {
                         )}
                     </button>
                 </div>
-            </section>
+            </div>
 
             {/* Mobile Menu Dropdown */}
             {isMenuOpen && (
