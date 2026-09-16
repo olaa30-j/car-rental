@@ -20,6 +20,9 @@ export default function ServiceCard({
         text-center
         rounded-[var(--border-radius)]
         bg-[var(--background-color)]
+        flex 
+        flex-col
+        items-center
       "
     >
       {/* Service Image */}
@@ -31,7 +34,6 @@ export default function ServiceCard({
           w-[64px]
           h-[64px]
           object-cover
-          rounded-full
         "
       />
 

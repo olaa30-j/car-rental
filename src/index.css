@@ -235,7 +235,7 @@ button {
   padding-inline: var(--container-padding);
 }
 
-.section {
+section {
   padding-block: var(--section-padding);
 }
 
