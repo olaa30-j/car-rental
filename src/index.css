@@ -189,7 +189,7 @@ h6 {
    Links
 ========================= */
 
-a {
+.link_style {
   font-family: var(--font-primary);
   font-size: clamp(18px, 1.39vw, 20px);
   font-weight: 700;
