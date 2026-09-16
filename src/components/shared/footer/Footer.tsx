@@ -9,7 +9,7 @@ const Footer = () => {
         <section>
             <div className="container flex flex-col gap-[60px]">
                 {/* ─── Top: contact info ─── */}
-                <div className="flex flex-col justify-between md:flex-row">
+                <div className="flex flex-col justify-between md:flex-row gap-4">
                     <div className="md:w-1/4">
                         <Logo />
                     </div>
