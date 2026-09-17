@@ -5,6 +5,7 @@ import MainSection from '../../components/home/MainSection'
 import SectionThree from '../../components/home/SectionThree'
 import SectionFive from '../../components/home/SectionFive'
 import SectionTwo from '../../components/home/sec_two/SectionTwo'
+import SectionSeven from '../../components/home/SectionSeven'
 
 const Home: FC = () => {
   return (
@@ -35,9 +36,12 @@ const Home: FC = () => {
       </section>
 
       <section className="container mx-auto">
-        <SectionFive/>
+        <SectionFive />
       </section>
 
+      <section className="container mx-auto">
+        <SectionSeven />
+      </section>
     </div>
   )
 }
