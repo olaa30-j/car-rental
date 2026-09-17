@@ -5,6 +5,7 @@ import PageHeader from '../../components/PageHeader'
 import videoPoster from "../../assets/home/sec_two/image.png";
 import StatsSection from '../../components/about/stats/StatsSection';
 import UnlockMemoriesSection from '../../components/about/memories/unlockMemoriesSection';
+import FaqSection from '../../components/about/faq/FaqSection';
 
 const About = () => {
     return (
@@ -28,6 +29,8 @@ const About = () => {
             <UnlockMemoriesSection/>
 
             <ReviewsSection />
+
+            <FaqSection/>
         </div>
     )
 }
