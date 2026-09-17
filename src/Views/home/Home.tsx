@@ -2,6 +2,7 @@ import type { FC } from 'react'
 import { services } from '../../data/service'
 import ServiceCard from '../../components/home/ServiceCard'
 import MainSection from '../../components/home/MainSection'
+import SectionThree from '../../components/home/SectionThree'
 
 const Home: FC = () => {
   return (
@@ -21,6 +22,10 @@ const Home: FC = () => {
             />
           ))}
         </div>
+      </section>
+
+      <section>
+        <SectionThree/>
       </section>
     </div>
   )

@@ -1,12 +1,10 @@
-import type { LucideIcon } from "lucide-react";
-
 /* =========================================================
    Types
 ========================================================= */
 
 interface CarFeature {
-  id: string;
-  icon: LucideIcon;
+  id: number;
+  icon: string;
   label: string;
 }
 
@@ -36,24 +34,25 @@ export default function CarCard({
         max-w-[368px]
         overflow-hidden
         rounded-[var(--border-radius)]
-        bg-[var(--background-color)]
+        bg-[#FAFAFA]
+        p-[24px]
       "
     >
       {/* =====================================================
           Car Image
       ===================================================== */}
-
-      <img
-        src={image}
-        alt={name}
-        className="block h-[240px] w-full object-cover"
-      />
-
+      <div>
+        <img
+          src={image}
+          alt={name}
+          className="block h-[240px] w-full object-contain"
+        />
+      </div>
       {/* =====================================================
           Car Details
       ===================================================== */}
 
-      <div className="p-6">
+      <div>
 
         {/* ---------------------------------------------------
             Main Information
@@ -62,7 +61,7 @@ export default function CarCard({
         --------------------------------------------------- */}
 
         <div className="flex items-start justify-between">
-          
+
           {/* Name + Category */}
           <div>
             <h4>{name}</h4>
@@ -71,7 +70,7 @@ export default function CarCard({
 
           {/* Price + Rental Period */}
           <div className="text-right">
-            <h4>${price}</h4>
+            <h4 className="text-primary">${price}</h4>
             <h6>Per day</h6>
           </div>
 
@@ -83,18 +82,16 @@ export default function CarCard({
 
         <div className="mt-6 flex items-center gap-4">
           {features.map((feature) => {
-            const Icon = feature.icon;
-
             return (
               <div
                 key={feature.id}
                 className="flex items-center gap-1.5"
               >
                 {/* Feature Icon */}
-                <Icon size={16} />
+                <img src={feature.icon} className="w-[20px] h-[20px]" />
 
                 {/* Feature Label */}
-                <span className="font-[600] text-[14px]">
+                <span className="text-black/60">
                   {feature.label}
                 </span>
               </div>
