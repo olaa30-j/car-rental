@@ -68,7 +68,7 @@ const StatCard = ({ stat }: { stat: StatItem }) => {
       </div>
 
       {/* Text Content */}
-      <div className="flex flex-col p-[6.5px]">
+      <div className="flex flex-col py-[6.5px]">
         <span className="text-[24px] font-bold leading-tight mb-2">
           {stat.value}
         </span>
