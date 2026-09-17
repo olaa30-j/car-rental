@@ -1,11 +1,32 @@
+import AboutFeaturesSection from '../../components/about/feature/AboutFeaturesSection'
 import ReviewsSection from '../../components/about/review/ReviewsSection'
+import VideoPlayer from '../../components/about/VideoPlayer'
+import PageHeader from '../../components/PageHeader'
+import videoPoster from "../../assets/home/sec_two/image.png";
+import StatsSection from '../../components/about/stats/StatsSection';
 
 const About = () => {
-  return (
-    <div>
-        <ReviewsSection/>
-    </div>
-  )
+    return (
+        <div>
+            <PageHeader
+                title="About Us"
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "About Us" },
+                ]}
+            />
+
+            <AboutFeaturesSection />
+
+            <div className='pt-[var(--section-padding)]'>
+                <VideoPlayer videoId="D7tit_JZKvk" poster={videoPoster} />
+            </div>
+
+            <StatsSection />
+            
+            <ReviewsSection />
+        </div>
+    )
 }
 
 export default About
