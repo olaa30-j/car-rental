@@ -4,10 +4,11 @@ import LoadingSpinner from '../Views/LoadingSpinner';
 
 const Home = lazy(() => import('../Views/home/Home'));
 const Products = lazy(() => import('../Views/products/Products'));
+const Details = lazy(() => import('../Views/details/Details'));
+const About = lazy(() => import('../Views/about/About'));
 
 import NotFound from '../Views/NotFound';
 import PublicLayout from '../layouts/PublicLayout';
-import Details from '../Views/details/Details';
 
 const LazyWrapper = ({ children }: PropsWithChildren) => (
   <Suspense fallback={
@@ -43,6 +44,14 @@ export const routes: RouteObject[] = [
         element: (
           <LazyWrapper>
             <Details />
+          </LazyWrapper>
+        ),
+      },
+      {
+        path: 'about',
+        element: (
+          <LazyWrapper>
+            <About />
           </LazyWrapper>
         ),
       },
