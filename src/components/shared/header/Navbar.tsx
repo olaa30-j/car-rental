@@ -5,11 +5,11 @@ const NavBarLinks = [
   },
   {
     text: "Vehicles",
-    link: "/vehicles"
+    link: "/products"
   },
   {
     text: "Details",
-    link: "/details"
+    link: "/details/1"
   },
   {
     text: "About Us",

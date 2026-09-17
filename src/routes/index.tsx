@@ -7,9 +7,14 @@ const Products = lazy(() => import('../Views/products/Products'));
 
 import NotFound from '../Views/NotFound';
 import PublicLayout from '../layouts/PublicLayout';
+import Details from '../Views/details/Details';
 
 const LazyWrapper = ({ children }: PropsWithChildren) => (
-  <Suspense fallback={<LoadingSpinner />}>{children}</Suspense>
+  <Suspense fallback={
+    <div className="flex min-h-[60vh] items-center justify-center">
+      <LoadingSpinner />
+    </div>
+  }>{children}</Suspense>
 );
 
 export const routes: RouteObject[] = [
@@ -26,10 +31,18 @@ export const routes: RouteObject[] = [
         ),
       },
       {
-        path: 'products',  
+        path: 'products',
         element: (
           <LazyWrapper>
             <Products />
+          </LazyWrapper>
+        ),
+      },
+      {
+        path: 'details/:id',
+        element: (
+          <LazyWrapper>
+            <Details />
           </LazyWrapper>
         ),
       },

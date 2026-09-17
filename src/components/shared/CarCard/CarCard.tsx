@@ -1,4 +1,9 @@
 /* =========================================================
+   CarCard.tsx
+========================================================= */
+import { useNavigate } from "react-router-dom";
+
+/* =========================================================
    Types
 ========================================================= */
 
@@ -9,6 +14,7 @@ interface CarFeature {
 }
 
 interface CarCardProps {
+  id: number;
   image: string;
   name: string;
   category: string;
@@ -21,21 +27,33 @@ interface CarCardProps {
 ========================================================= */
 
 export default function CarCard({
+  id,
   image,
   name,
   category,
   price,
   features,
 }: CarCardProps) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/details/${id}`);
+  };
+
   return (
     <article
+      onClick={handleClick}
       className="
         w-full
+        cursor-pointer
         overflow-hidden
         rounded-[var(--border-radius)]
         bg-[#FAFAFA]
         p-[24px]
         mx-auto
+        transition
+        hover:shadow-lg
+        hover:-translate-y-1
       "
     >
       {/* =====================================================
@@ -48,6 +66,7 @@ export default function CarCard({
           className="block h-[240px] w-full object-contain"
         />
       </div>
+
       {/* =====================================================
           Car Details
       ===================================================== */}
