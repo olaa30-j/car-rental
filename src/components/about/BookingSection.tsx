@@ -50,7 +50,7 @@ const BookingSection = () => {
             />
 
             {/* Foreground Content */}
-            <div className="relative z-10 flex flex-col justify-center w-full lg:w-[60%] py-[58px]">
+            <div className="relative z-10 flex flex-col justify-center w-[100%] lg:w-[60%] py-[58px] items-center lg:items-start">
 
                 {/* Heading */}
                 <h2 className="text-white leading-[1.15]">
