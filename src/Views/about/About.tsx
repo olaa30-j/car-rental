@@ -6,6 +6,7 @@ import videoPoster from "../../assets/home/sec_two/image.png";
 import StatsSection from '../../components/about/stats/StatsSection';
 import UnlockMemoriesSection from '../../components/about/memories/unlockMemoriesSection';
 import FaqSection from '../../components/about/faq/FaqSection';
+import BookingSection from '../../components/about/BookingSection';
 
 const About = () => {
     return (
@@ -25,12 +26,16 @@ const About = () => {
             </div>
 
             <StatsSection />
-            
-            <UnlockMemoriesSection/>
+
+            <UnlockMemoriesSection />
 
             <ReviewsSection />
 
-            <FaqSection/>
+            <FaqSection />
+
+            <section className="container mx-auto">
+                <BookingSection />
+            </section>
         </div>
     )
 }
