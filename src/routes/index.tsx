@@ -1,21 +1,18 @@
-import { createBrowserRouter } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { createBrowserRouter, type RouteObject } from 'react-router-dom';
+import { lazy, Suspense, type PropsWithChildren } from 'react';
 import LoadingSpinner from '../Views/LoadingSpinner';
 
-// Lazy load pages
 const Home = lazy(() => import('../Views/home/Home'));
+const Products = lazy(() => import('../Views/products/Products'));
 
-// Import NotFound directly (not lazy) for faster loading
 import NotFound from '../Views/NotFound';
 import PublicLayout from '../layouts/PublicLayout';
 
-const LazyWrapper = ({ children }: { children: React.ReactNode }) => (
-  <Suspense fallback={<LoadingSpinner />}>
-    {children}
-  </Suspense>
+const LazyWrapper = ({ children }: PropsWithChildren) => (
+  <Suspense fallback={<LoadingSpinner />}>{children}</Suspense>
 );
 
-export const routes = [
+export const routes: RouteObject[] = [
   {
     path: '/',
     element: <PublicLayout />,
@@ -27,10 +24,17 @@ export const routes = [
             <Home />
           </LazyWrapper>
         ),
-      }
+      },
+      {
+        path: 'products',  
+        element: (
+          <LazyWrapper>
+            <Products />
+          </LazyWrapper>
+        ),
+      },
     ],
   },
-  // NotFound outside RootLayout - no header, full page
   {
     path: '*',
     element: <NotFound />,
