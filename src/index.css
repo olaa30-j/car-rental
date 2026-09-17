@@ -329,5 +329,5 @@ section {
 
 .section_style {
   padding-inline: clamp(16px, 5vw, 72px);
-  padding-block: clamp(24px, 6vh, 78.5px);
+  padding-block: 78.5px;
 }
