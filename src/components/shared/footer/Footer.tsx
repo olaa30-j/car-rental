@@ -95,7 +95,7 @@ const Footer = () => {
                 </div>
 
                 {/* ─── Copyright ─── */}
-                <div className="text-sm text-gray-500 text-center" style={{marginBlock:'40px'}}>
+                <div className="text-sm text-gray-500 text-center">
                     {copyright}
                 </div>
             </div>

@@ -31,11 +31,11 @@ export default function CarCard({
     <article
       className="
         w-full
-        max-w-[368px]
         overflow-hidden
         rounded-[var(--border-radius)]
         bg-[#FAFAFA]
         p-[24px]
+        mx-auto
       "
     >
       {/* =====================================================
@@ -80,7 +80,7 @@ export default function CarCard({
             Features
         =================================================== */}
 
-        <div className="mt-6 flex items-center gap-4">
+        <div className="mt-6 flex items-center justify-between gap-4">
           {features.map((feature) => {
             return (
               <div

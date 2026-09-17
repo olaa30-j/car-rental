@@ -3,6 +3,7 @@ import { services } from '../../data/service'
 import ServiceCard from '../../components/home/ServiceCard'
 import MainSection from '../../components/home/MainSection'
 import SectionThree from '../../components/home/SectionThree'
+import SectionTwo from '../../components/home/sec_two/SectionTwo'
 
 const Home: FC = () => {
   return (
@@ -25,8 +26,13 @@ const Home: FC = () => {
       </section>
 
       <section>
-        <SectionThree/>
+        <SectionTwo />
       </section>
+
+      <section>
+        <SectionThree />
+      </section>
+
     </div>
   )
 }
