@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { services } from '../../data/service'
 import ServiceCard from '../../components/home/ServiceCard'
-import MainSection from '../../components/home/mainSection'
+import MainSection from '../../components/home/MainSection'
 
 const Home: FC = () => {
   return (

@@ -5,7 +5,7 @@ import MainForm from './MainForm'
 
 const MainSection: FC = () => {
   return (
-    <div className="relative overflow-hidden rounded-[40px] bg-primary min-h-[660px]" style={{paddingInline: '72px', paddingBlock:'78.5px'}}>
+    <div className="relative overflow-hidden section_style rounded-[40px] bg-primary min-h-[660px]">
       {/* Background Image 1 — centered, full width & height */}
       <img
         src={BgImage1}
@@ -41,15 +41,15 @@ const MainSection: FC = () => {
       />
 
       {/* Foreground content */}
-      <div className="relative z-10 h-full flex justify-center items-center lg:flex-row flex-col mx-auto">
+      <div className="relative z-10 h-full flex justify-center items-center lg:flex-row flex-col mx-auto gap-[44px]">
         <div className='text-white lg:w-2/3'>
           <h1>Experience the road like never before</h1>
-          <p className='max-w-[464px] py-[27px]'>Aliquam adipiscing velit semper morbi. Purus non eu cursus porttitor tristique et gravida. Quis nunc interdum gravida ullamcorper</p>
+          <p className='max-w-[464px] py-[27px]' style={{paddingBlock:'27px'}}>Aliquam adipiscing velit semper morbi. Purus non eu cursus porttitor tristique et gravida. Quis nunc interdum gravida ullamcorper</p>
 
-          <button className='bg-secondary'>View all cars</button>
+          <button className='bg-secondary button_style' style={{paddingInline:'28px'}}>View all cars</button>
         </div>
-        <div className='lg:w-1/3'>
-          <MainForm />
+        <div className='lg:w-1/3 md:w-2/3 w-full'>
+          <MainForm className='bg-white'/>
         </div>
       </div>
     </div>

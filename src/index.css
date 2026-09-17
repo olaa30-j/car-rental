@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
 
 /* =========================
    Tailwind v4 Theme Configuration
@@ -31,6 +31,8 @@
   --animate-track-slide-delayed: trackSlide 1.5s linear infinite 0.5s;
   --animate-button-pulse: buttonPulse 2s ease-in-out infinite;
   --animate-shimmer: shimmer 3s linear infinite;
+
+  --spacing: 0.25rem; 
 
   /* Keyframes */
   @keyframes fadeInDown {
@@ -102,6 +104,22 @@
   }
 }
 
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: #000;
+  }
+}
+
 /* =========================
    CSS Variables (for use in inline styles / non-Tailwind CSS)
 ========================= */
@@ -125,25 +143,6 @@
   --button-padding-x: clamp(20px, 2.5vw, 28px);
 }
 
-/* =========================
-   Reset
-========================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-primary);
-  background-color: var(--background-color);
-  color: #000000;
-}
 
 /* =========================
    Typography
@@ -222,6 +221,11 @@ button {
   font-weight: 600;
   border: none;
   cursor: pointer;
+}
+
+.button_style{
+  padding-block: 10.5px;
+  border-radius: 12px;
 }
 
 /* =========================
@@ -317,4 +321,13 @@ section {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* =========================
+   Home - Main Section
+========================= */
+
+.section_style {
+  padding-inline: clamp(16px, 5vw, 72px);
+  padding-block: clamp(24px, 6vh, 78.5px);
 }

@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import DynamicForm, { type FormDataState, type FormField } from './DynamicForm';  
 
-const MainForm: React.FC = () => {
+interface MainFormProps{
+    className?: string;
+    textColor?: string;
+}
+
+const MainForm: React.FC<MainFormProps> = ({className, textColor}) => {
     // 1. State management for the form
     const [formData, setFormData] = useState<FormDataState>({});
 
@@ -77,12 +82,12 @@ const MainForm: React.FC = () => {
     }
 
     return (
-        <div className='bg-white rounded-[var(--radius-button)] shadow-sm' style={{padding: '40px'}}>
-            <h4 className='text-center font-bold text-xl'>
+        <div className={`${className} rounded-[var(--radius-button)] shadow-sm`} style={{padding: '40px'}}>
+            <h4 className={`${textColor} text-center font-bold text-xl`}>
                 Book your car
             </h4>
             
-            <div style={{margin: '20px'}}>
+            <div style={{marginBlock: '20px'}}>
                 {/* 3. Render the Dynamic Form */}
                 <DynamicForm 
                     fields={formConfig} 
@@ -92,7 +97,7 @@ const MainForm: React.FC = () => {
             </div>
 
             <button 
-                className='w-full bg-secondary rounded-[var(--radius-button)] py-3 text-white font-semibold transition hover:opacity-90'
+                className='w-full button_style bg-secondary text-white font-semibold transition hover:opacity-90'
                 onClick={handleBookNow}
             >
                 Book now
