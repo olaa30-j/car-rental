@@ -4,6 +4,7 @@ import VideoPlayer from '../../components/about/VideoPlayer'
 import PageHeader from '../../components/PageHeader'
 import videoPoster from "../../assets/home/sec_two/image.png";
 import StatsSection from '../../components/about/stats/StatsSection';
+import UnlockMemoriesSection from '../../components/about/memories/unlockMemoriesSection';
 
 const About = () => {
     return (
@@ -24,6 +25,8 @@ const About = () => {
 
             <StatsSection />
             
+            <UnlockMemoriesSection/>
+
             <ReviewsSection />
         </div>
     )
