@@ -6,6 +6,7 @@ import SectionThree from '../../components/home/SectionThree'
 import SectionFive from '../../components/home/SectionFive'
 import SectionTwo from '../../components/home/sec_two/SectionTwo'
 import SectionSeven from '../../components/home/SectionSeven'
+import SectionSix from '../../components/home/SectionSix'
 
 const Home: FC = () => {
   return (
@@ -37,6 +38,10 @@ const Home: FC = () => {
 
       <section className="container mx-auto">
         <SectionFive />
+      </section>
+
+      <section className="container mx-auto">
+        <SectionSix />
       </section>
 
       <section className="container mx-auto">
