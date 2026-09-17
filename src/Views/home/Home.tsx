@@ -3,6 +3,7 @@ import { services } from '../../data/service'
 import ServiceCard from '../../components/home/ServiceCard'
 import MainSection from '../../components/home/MainSection'
 import SectionThree from '../../components/home/SectionThree'
+import SectionFive from '../../components/home/SectionFive'
 import SectionTwo from '../../components/home/sec_two/SectionTwo'
 
 const Home: FC = () => {
@@ -31,6 +32,10 @@ const Home: FC = () => {
 
       <section>
         <SectionThree />
+      </section>
+
+      <section className="container mx-auto">
+        <SectionFive/>
       </section>
 
     </div>
