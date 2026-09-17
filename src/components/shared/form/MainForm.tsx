@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DynamicForm, { type FormDataState, type FormField } from '../home/DynamicForm';  
+import DynamicForm, { type FormDataState, type FormField } from './DynamicForm';  
 
 interface MainFormProps{
     className?: string;

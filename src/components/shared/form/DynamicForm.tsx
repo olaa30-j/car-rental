@@ -1,6 +1,6 @@
 import React from 'react';
-import type { SelectOption } from '../shared/Dropdown';
-import Dropdown from '../shared/Dropdown';
+import type { SelectOption } from '../Dropdown';
+import Dropdown from '../Dropdown';
 
 // --- Types ---
 export type FieldType = 'text' | 'select' | 'date';

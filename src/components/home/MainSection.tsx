@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import BgImage1 from '../../assets/shared/banners/sec-1.png'
 import BgImage2 from '../../assets/home/main/car.png'
-import MainForm from '../shared/MainForm'
+import MainForm from '../shared/form/MainForm'
 
 const MainSection: FC = () => {
   return (
