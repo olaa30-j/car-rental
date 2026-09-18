@@ -19,7 +19,7 @@ const ICON_SIZES: Record<string, { w: string; h: string }> = {
 
 const DownloadAppLinks: React.FC<DownloadAppLinksProps> = ({
     variant = 'col',
-    colorVariant = 'light',
+    colorVariant = 'dark',
     custom_gap = '12px',
     className = '',
 }) => {

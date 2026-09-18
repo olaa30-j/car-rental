@@ -124,7 +124,7 @@ const SectionFive = () => {
       />
 
       {/* Foreground Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-[72px] py-[60px]">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full md:px-[72px] px-[32px] py-[60px]">
         
         {/* Header */}
         <div className="text-center max-w-2xl mb-[80px]">

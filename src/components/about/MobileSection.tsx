@@ -58,7 +58,7 @@ const MobileSection = () => {
                             Turpis morbi enim nisi pulvinar leo dui tellus. Faucibus egestas semper diam rutrum dictumst ut donec. Nisi nisi morbi vel in vulputate. Nulla nam eget urna fusce vulputate at risus
                         </p>
 
-                        <DownloadAppLinks variant="row" custom_gap="40px" />
+                        <DownloadAppLinks variant="row" custom_gap="40px" colorVariant="light"/>
 
                     </div>
                 </div>

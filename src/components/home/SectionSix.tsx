@@ -7,7 +7,7 @@ import DownloadAppLinks from '../shared/DownloadAppLinks';
 const SectionSix = () => {
     return (
         <div className="w-full bg-white py-16 overflow-hidden">
-            <div className="mx-auto px-[80px]">
+            <div className="mx-auto md:px-[80px]">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
 
                     {/* Left Side: Text & Buttons */}
@@ -40,7 +40,8 @@ const SectionSix = () => {
                             className="
                                 relative
                                 z-[1]
-                                -right-1/5
+                                md:-right-1/5
+                                right-0
                                 w-full 
                                 max-w-[267px] 
                                 max-h-[440px] 
@@ -57,6 +58,8 @@ const SectionSix = () => {
                                 z-[0]
                                 top-1/10
                                 -translate-y-1/10
+                                -left-1/3
+                                md:left-0
                                 w-full 
                                 max-w-[267px] 
                                 max-h-[540px] 
