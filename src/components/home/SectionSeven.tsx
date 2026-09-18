@@ -6,7 +6,7 @@ import HexPatternImage from '../../assets/shared/banners/sec-7.png';
 
 const SectionSeven = () => {
   return (
-    <div className="relative overflow-hidden rounded-[32px] bg-primary min-h-[415px] flex items-center w-full px-[72px]">
+    <div className="relative overflow-hidden rounded-[32px] bg-primary min-h-[415px] flex items-center w-full md:px-[72px] px-[32px]">
       
       {/* Hexagon Pattern Background Overlay */}
       <img
@@ -72,13 +72,16 @@ const SectionSeven = () => {
             className="
               flex-1 
               bg-transparent 
-              px-6 
+              md:px-6 
               py-3 
+              px-2
               text-gray-700 
               placeholder-gray-400 
               outline-none 
               text-base 
               font-medium
+              w-3/4
+              md:w-full
             "
           />
           <button 
