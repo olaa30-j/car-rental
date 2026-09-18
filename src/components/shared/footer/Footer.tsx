@@ -1,4 +1,5 @@
 import { footerData } from "../../../data/footerData";
+import ContactList from "../ContactItem ";
 import DownloadAppLinks from "../DownloadAppLinks";
 import Logo from "../Logo"
 
@@ -13,23 +14,10 @@ const Footer = () => {
                     <div className="md:w-1/4">
                         <Logo />
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 md:w-3/4">
-                        {contact.map((item) => (
-                            <div key={item.id} className="flex items-start gap-3">
-                                <div className="shrink-0 w-9 h-9 sm:w-10 h-10 flex items-center justify-center rounded-full bg-secondary">
-                                    {item.icon}
-                                </div>
-                                <div className="flex flex-col min-w-0">
-                                    <p>
-                                        {item.title}
-                                    </p>
-                                    <p className="text-sm sm:text-base font-semibold break-words">
-                                        {item.description}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <ContactList
+                        items={contact}
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 md:w-3/4"
+                    />
                 </div>
 
                 {/* ─── Main grid ─── */}

@@ -21,6 +21,7 @@ const SectionThree = () => {
             category={car.category}
             price={car.price}
             features={car.features}
+            id={car.id} 
           />
         ))}
       </div>

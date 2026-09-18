@@ -93,6 +93,8 @@ const MainForm: React.FC<MainFormProps> = ({className, textColor}) => {
                     fields={formConfig} 
                     formData={formData} 
                     setFormData={setFormData} 
+                    textColor={textColor}
+                    placeholderColor={textColor}
                 />
             </div>
 

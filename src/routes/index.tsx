@@ -6,6 +6,7 @@ const Home = lazy(() => import('../Views/home/Home'));
 const Products = lazy(() => import('../Views/products/Products'));
 const Details = lazy(() => import('../Views/details/Details'));
 const About = lazy(() => import('../Views/about/About'));
+const Contact = lazy(() => import('../Views/contact/Contact'));
 
 import NotFound from '../Views/NotFound';
 import PublicLayout from '../layouts/PublicLayout';
@@ -52,6 +53,14 @@ export const routes: RouteObject[] = [
         element: (
           <LazyWrapper>
             <About />
+          </LazyWrapper>
+        ),
+      },
+      {
+        path: 'contact',
+        element: (
+          <LazyWrapper>
+            <Contact />
           </LazyWrapper>
         ),
       },
