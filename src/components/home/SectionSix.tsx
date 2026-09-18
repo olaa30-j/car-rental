@@ -59,7 +59,7 @@ const SectionSix = () => {
                                 -translate-y-1/10
                                 w-full 
                                 max-w-[267px] 
-                                max-h-[440px] 
+                                max-h-[540px] 
                                 object-contain 
                                 select-none
                             "

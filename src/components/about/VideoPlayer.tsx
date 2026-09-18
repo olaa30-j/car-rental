@@ -26,8 +26,8 @@ export default function VideoPlayer({
     <div
       className={`
         relative
+        w-full
         max-w-6xl
-        h-[600px]
         aspect-video
         overflow-hidden
         rounded-[var(--border-radius)]
@@ -84,7 +84,11 @@ export default function VideoPlayer({
           >
             <span
               className="
-                flex h-[64px] w-[64px]
+                flex
+                h-12 w-12
+                sm:h-14 sm:w-14
+                md:h-16 md:w-16
+                lg:h-[72px] lg:w-[72px]
                 items-center justify-center
                 rounded-full
                 bg-primary
@@ -99,7 +103,7 @@ export default function VideoPlayer({
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="white"
-                className="h-10 w-10"
+                className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10"
               >
                 <path d="M8 5v14l11-7z" />
               </svg>

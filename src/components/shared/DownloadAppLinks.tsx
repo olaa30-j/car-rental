@@ -2,9 +2,11 @@ import React from 'react';
 import { footerData } from '../../data/footerData';
 
 type Variant = 'row' | 'col';
+type ColorVariant = 'light' | 'dark';
 
 interface DownloadAppLinksProps {
     variant?: Variant;
+    colorVariant?: ColorVariant;
     custom_gap?: string;
     className?: string;
 }
@@ -17,16 +19,25 @@ const ICON_SIZES: Record<string, { w: string; h: string }> = {
 
 const DownloadAppLinks: React.FC<DownloadAppLinksProps> = ({
     variant = 'col',
+    colorVariant = 'light',
     custom_gap = '12px',
     className = '',
 }) => {
     const { badges } = footerData.downloadApp;
 
+    const isLight = colorVariant === 'light';
+
+    /* "row" variant → column on mobile, row from sm and up */
+    const directionClasses =
+        variant === 'row'
+            ? 'flex-col sm:flex-row'
+            : 'flex-col';
+
     return (
         <div
             className={[
                 'flex',
-                variant === 'row' ? 'flex-row' : 'flex-col',
+                directionClasses,
                 className,
             ].join(' ')}
             style={{ gap: custom_gap }}
@@ -35,21 +46,26 @@ const DownloadAppLinks: React.FC<DownloadAppLinksProps> = ({
                 const size = ICON_SIZES[badge.label] ?? { w: 'auto', h: '32px' };
 
                 return (
-                    <div 
-                        className='bg-black w-[171.43px] h-[50px] rounded-sm'   
-                        style={{paddingInline: '7.25px', paddingTop: '9.29px' }}
+                    <div
+                        key={badge.id}
+                        className={[
+                            'w-[171.43px] h-[50px] rounded-sm border',
+                            isLight
+                                ? 'bg-white text-black border-gray-200'
+                                : 'bg-black text-white border-black',
+                        ].join(' ')}
+                        style={{ paddingInline: '7.25px', paddingTop: '9.29px' }}
                     >
                         <a
-                            key={badge.id}
                             href={badge.href}
                             aria-label={badge.label}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-3 text-white transition-opacity hover:opacity-90"
+                            className="flex items-center justify-center gap-3 transition-opacity hover:opacity-90"
                         >
-                            {/* Icon — left */}
+                            {/* Icon — swaps based on variant */}
                             <img
-                                src={badge.image}
+                                src={isLight ? badge.imageBlack : badge.image}
                                 alt={badge.label}
                                 style={{ width: size.w, height: size.h }}
                                 className="object-contain shrink-0"

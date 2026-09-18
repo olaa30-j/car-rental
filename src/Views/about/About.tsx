@@ -7,6 +7,7 @@ import StatsSection from '../../components/about/stats/StatsSection';
 import UnlockMemoriesSection from '../../components/about/memories/unlockMemoriesSection';
 import FaqSection from '../../components/about/faq/FaqSection';
 import BookingSection from '../../components/about/BookingSection';
+import MobileSection from '../../components/about/MobileSection';
 
 const About = () => {
     return (
@@ -28,6 +29,10 @@ const About = () => {
             <StatsSection />
 
             <UnlockMemoriesSection />
+
+            <section className="container mx-auto">
+                <MobileSection />
+            </section>
 
             <ReviewsSection />
 

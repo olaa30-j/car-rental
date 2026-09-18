@@ -10,6 +10,9 @@ import youtubeIcon   from '../assets/shared/social_media/youtube.png';
 /* app store badges */
 import appStoreBadge   from '../assets/shared/social_media/apple.png';
 import googlePlayBadge from '../assets/shared/social_media/google.png';
+import appStoreBlackBadge   from '../assets/shared/social_media/apple_black.png';
+import googlePlayBlackBadge from '../assets/shared/social_media/google_balck.png';
+
 
 /* logo */
 import logo from '../assets/shared/logo.png';
@@ -46,6 +49,7 @@ export interface AppBadge {
   href: string;
   image: string;
   title: string;
+  imageBlack: string;
 }
 
 export interface FooterData {
@@ -133,8 +137,8 @@ export const footerData: FooterData = {
   downloadApp: {
     title: 'Download App',
     badges: [
-      { id: 1, title:'Download on the', label: 'App Store',   href: 'https://apps.apple.com',  image: appStoreBadge },
-      { id: 2, title: 'Get It On', label: 'Google Play', href: 'https://play.google.com', image: googlePlayBadge },
+      { id: 1, title:'Download on the', label: 'App Store',   href: 'https://apps.apple.com',  image: appStoreBadge, imageBlack: appStoreBlackBadge },
+      { id: 2, title: 'Get It On', label: 'Google Play', href: 'https://play.google.com', image: googlePlayBadge, imageBlack: googlePlayBlackBadge },
     ],
   },
 
