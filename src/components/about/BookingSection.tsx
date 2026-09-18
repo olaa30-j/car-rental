@@ -6,7 +6,7 @@ import HexPatternImage from '../../assets/shared/banners/sec-7.png';
 
 const BookingSection = () => {
     return (
-        <div className="relative overflow-hidden rounded-[32px] bg-primary min-h-[415px] flex items-center w-full px-[72px]">
+        <div className="relative overflow-hidden rounded-[32px] bg-primary min-h-[415px] flex items-center w-full md:px-[72px] px-[32px]">
 
             {/* Hexagon Pattern Background Overlay */}
             <img
