@@ -66,7 +66,7 @@ function NumberedItem({
     return (
       <div className="flex gap-4">
         <ItemBadge id={id} variant={variant} />
-        <p className="leading-relaxed text-black/60">{description}</p>
+        <p className="leading-relaxed text-blur-text">{description}</p>
       </div>
     );
   }
@@ -78,7 +78,7 @@ function NumberedItem({
         <ItemBadge id={id} variant={variant} />
         <h5>{title}</h5>
       </div>
-      <p className="pt-[10px] leading-relaxed text-black/60">
+      <p className="pt-[10px] leading-relaxed text-blur-text">
         {description}
       </p>
     </div>

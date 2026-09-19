@@ -38,14 +38,14 @@ export default function PageHeader({ title, breadcrumbs }: PageHeaderProps) {
           return (
             <div key={idx} className="flex items-center gap-2">
               {/* Separator (rendered before all but the first item) */}
-              {idx > 0 && <span className="text-black/60">/</span>}
+              {idx > 0 && <span className="text-blur-text">/</span>}
 
               {isLast || !crumb.href ? (
                 <span className="text-black">{crumb.label}</span>
               ) : (
                 <Link
                   to={crumb.href}
-                  className="text-black/60 transition hover:text-primary"
+                  className="text-blur-text transition hover:text-primary"
                 >
                   {crumb.label}
                 </Link>

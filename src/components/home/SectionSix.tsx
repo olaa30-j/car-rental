@@ -19,7 +19,7 @@ const SectionSix = () => {
                         </h2>
 
                         {/* Description */}
-                        <p className="text-black/60 leading-relaxed mb-10 lg:max-w-[500px]">
+                        <p className="text-blur-text leading-relaxed mb-10 lg:max-w-[500px]">
                             Imperdiet ut tristique viverra nunc. Ultrices orci vel auctor cursus
                             turpis nibh placerat massa. Fermentum urna ut at et in. Turpis
                             aliquet cras hendrerit enim condimentum. Condimentum interdum

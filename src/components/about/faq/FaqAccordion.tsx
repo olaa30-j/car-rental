@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { FaqItemData } from "../../../data/faqContent";
 
 /* =========================================================
@@ -18,30 +17,30 @@ interface FaqAccordionProps {
 ========================================================= */
 function FaqItem({
   item,
-  isOpen,
-  onToggle,
+  name,
+  defaultOpen,
 }: {
   item: FaqItemData;
-  isOpen: boolean;
-  onToggle: () => void;
+  name: string;
+  defaultOpen: boolean;
 }) {
   return (
-    <div className="border border-gray-300 rounded-2xl overflow-hidden">
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isOpen}
+    <details
+      name={name}
+      open={defaultOpen}
+      className="group border border-gray-300 rounded-2xl overflow-hidden bg-white"
+    >
+      <summary
         className="
           w-full flex items-center justify-between gap-4
-          px-6 py-5 text-left
-          hover:bg-gray-50 transition-colors
+          px-6 py-5 text-left cursor-pointer list-none
+          hover:bg-gray-50 group-open:bg-gray-50 transition-colors
+          [&::-webkit-details-marker]:hidden
         "
       >
-        <h4 className="font-bold text-gray-900">
-          {item.question}
-        </h4>
+        <h4 className="font-bold text-gray-900">{item.question}</h4>
 
-        {/* Chevron icon — rotates when open */}
+        {/* Chevron icon — rotates when open via group-open */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -50,30 +49,31 @@ function FaqItem({
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`
+          className="
             w-5 h-5 shrink-0 text-gray-700
             transition-transform duration-300
-            ${isOpen ? "rotate-180" : "rotate-0"}
-          `}
+            group-open:rotate-180
+          "
         >
           <polyline points="6 9 12 15 18 9" />
         </svg>
-      </button>
+      </summary>
 
-      {/* Answer — animated open/close */}
+      {/* Answer — animated open/close using grid trick + open: variant */}
       <div
-        className={`
-          grid transition-all duration-300 ease-in-out
-          ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}
-        `}
+        className="
+          grid grid-rows-[0fr] opacity-0
+          transition-all duration-300 ease-in-out
+          group-open:grid-rows-[1fr] group-open:opacity-100
+        "
       >
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 leading-relaxed text-black/60">
+          <p className="px-6 pb-6 leading-relaxed text-blur-text">
             {item.answer}
           </p>
         </div>
       </div>
-    </div>
+    </details>
   );
 }
 
@@ -86,17 +86,9 @@ export default function FaqAccordion({
   allowMultiple = false,
   defaultOpenId = 0,
 }: FaqAccordionProps) {
-  const [openIds, setOpenIds] = useState<number[]>(
-    defaultOpenId !== null ? [defaultOpenId] : []
-  );
-
-  const toggle = (id: number) => {
-    setOpenIds((prev) => {
-      const isOpen = prev.includes(id);
-      if (isOpen) return prev.filter((x) => x !== id);
-      return allowMultiple ? [...prev, id] : [id];
-    });
-  };
+  // A shared `name` makes the <details> elements mutually exclusive
+  // (only one can be open at a time) — native browser behavior.
+  const groupName = allowMultiple ? undefined : "faq-accordion";
 
   return (
     <div className={`flex flex-col gap-5 ${className}`}>
@@ -104,8 +96,8 @@ export default function FaqAccordion({
         <FaqItem
           key={item.id}
           item={item}
-          isOpen={openIds.includes(item.id)}
-          onToggle={() => toggle(item.id)}
+          name={groupName ?? `faq-${item.id}`}
+          defaultOpen={defaultOpenId === item.id}
         />
       ))}
     </div>

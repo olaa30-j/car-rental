@@ -72,7 +72,7 @@ const StatCard = ({ stat }: { stat: StatItem }) => {
         <span className="text-[24px] font-bold leading-tight mb-2">
           {stat.value}
         </span>
-        <span className="font-[600] text-black/60">
+        <span className="font-[600] text-blur-text">
           {stat.label}
         </span>
       </div>

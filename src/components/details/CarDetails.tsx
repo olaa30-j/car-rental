@@ -48,7 +48,7 @@ const EquipmentItem: React.FC<{ label: string }> = ({ label }) => {
           />
         </svg>
       </span>
-      <span className="text-black/60">{label}</span>
+      <span className="text-blur-text">{label}</span>
     </div>
   );
 };

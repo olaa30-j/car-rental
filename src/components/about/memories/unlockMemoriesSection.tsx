@@ -16,7 +16,7 @@ const UnlockMemoriesSection = () => {
             {heading}
           </h2>
 
-          <p className="mt-6 text-black/60 leading-relaxed">
+          <p className="mt-6 text-blur-text leading-relaxed">
             {subtext}
           </p>
 

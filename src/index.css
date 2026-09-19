@@ -3,10 +3,6 @@
 
 /* =========================
    Tailwind v4 Theme Configuration
-   These create utility classes like:
-   - text-primary, bg-primary, border-primary
-   - text-secondary, bg-secondary
-   - font-primary, font-button
 ========================= */
 
 @theme {
@@ -14,11 +10,13 @@
   --font-primary: "Work Sans", sans-serif;
   --font-button: "Inter", sans-serif;
 
-  /* Colors */
+  /* Colors — main brand (same in light & dark) */
   --color-primary: #5937e0;
   --color-secondary: #ff9e0c;
-  --color-background: #ffffff;
   --color-gray-custom: #fafafa;
+
+  /* Blur / muted overlays */
+  --color-blur-text: rgb(0 0 0 / 0.6);
 
   /* Border Radius */
   --radius-button: 20px;
@@ -32,7 +30,7 @@
   --animate-button-pulse: buttonPulse 2s ease-in-out infinite;
   --animate-shimmer: shimmer 3s linear infinite;
 
-  --spacing: 0.25rem; 
+  --spacing: 0.25rem;
 
   /* Keyframes */
   @keyframes fadeInDown {
@@ -104,88 +102,135 @@
   }
 }
 
+/* =========================
+   Base Layer — reset, theme, typography, selection
+========================= */
+
 @layer base {
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
-  html { scroll-behavior: smooth; }
-  
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+  }
+
+  /* ---------- Light (default) ---------- */
+  :root {
+    --background-color: #ffffff;
+    --foreground-color: #000000;
+
+    /* Reference @theme tokens — single source of truth */
+    --primary-color: var(--color-primary);
+    --secondary-color: var(--color-secondary);
+
+    /* Text color on top of primary (selection, buttons, etc.) */
+    --primary-contrast: #ffffff;
+    --color-blur-text: rgb(0 0 0 / 0.6);
+
+    /* Layout vars */
+    --container-padding: clamp(24px, 5vw, 72px);
+    --section-padding: clamp(40px, 4.17vw, 60px);
+    --button-padding-y: clamp(8px, 1.2vw, 10.5px);
+    --button-padding-x: clamp(20px, 2.5vw, 28px);
+    --border-radius: 20px;
+  }
+
+  /* ---------- Dark (follows system) ---------- */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #0b0b0f;
+      --foreground-color: #f5f5f5;
+
+      --color-blur-text: rgb(255 255 255 / 0.6);
+
+      /* --primary-color / --secondary-color intentionally unchanged */
+      /* --primary-contrast stays #ffffff because primary is dark in both modes */
+    }
+  }
+
+  /* ---------- Manual override (for a future toggle) ---------- */
+  [data-theme="light"] {
+    --background-color: #ffffff;
+    --foreground-color: #000000;
+    --color-blur-text: rgb(0 0 0 / 0.6);
+  }
+
+  [data-theme="dark"] {
+    --background-color: #0b0b0f;
+    --foreground-color: #f5f5f5;
+    --color-blur-text: rgb(255 255 255 / 0.6);
+  }
+
+  /* ---------- Selection: primary bg + secondary underline ---------- */
+  ::selection {
+    background-color: var(--primary-color);
+    color: var(--primary-contrast);
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  ::-moz-selection {
+    background-color: var(--primary-color);
+    color: var(--primary-contrast);
+  }
+
+  /* ---------- Body ---------- */
   body {
     font-family: var(--font-primary);
     background-color: var(--background-color);
-    color: #000;
+    color: var(--foreground-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* ---------- Headings ---------- */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-primary);
+  }
+
+  h1 {
+    font-size: clamp(40px, 4.17vw, 60px);
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: clamp(36px, 3.47vw, 50px);
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: clamp(24px, 1.94vw, 28px);
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: clamp(20px, 1.67vw, 24px);
+    font-weight: 600;
+  }
+
+  h5 {
+    font-size: clamp(18px, 1.39vw, 20px);
+    font-weight: 600;
+  }
+
+  h6 {
+    font-size: clamp(14px, 1.11vw, 16px);
+    font-weight: 400;
   }
 }
 
 /* =========================
-   CSS Variables (for use in inline styles / non-Tailwind CSS)
-========================= */
-
-:root {
-  --font-primary: "Work Sans", sans-serif;
-  --font-button: "Inter", sans-serif;
-
-  --primary-color: #5937e0;
-  --secondary-color: #ff9e0c;
-
-  --background-color: #ffffff;
-  --gray-color: #fafafa;
-
-  --border-radius: 20px;
-
-  --container-padding: clamp(24px, 5vw, 72px);
-  --section-padding: clamp(40px, 4.17vw, 60px);
-
-  --button-padding-y: clamp(8px, 1.2vw, 10.5px);
-  --button-padding-x: clamp(20px, 2.5vw, 28px);
-}
-
-
-/* =========================
-   Typography
-========================= */
-
-h1 {
-  font-family: var(--font-primary);
-  font-size: clamp(40px, 4.17vw, 60px);
-  font-weight: 700;
-}
-
-h2 {
-  font-family: var(--font-primary);
-  font-size: clamp(36px, 3.47vw, 50px);
-  font-weight: 700;
-}
-
-h3 {
-  font-family: var(--font-primary);
-  font-size: clamp(24px, 1.94vw, 28px);
-  font-weight: 600;
-}
-
-h4 {
-  font-family: var(--font-primary);
-  font-size: clamp(20px, 1.67vw, 24px);
-  font-weight: 600;
-}
-
-h5 {
-  font-family: var(--font-primary);
-  font-size: clamp(18px, 1.39vw, 20px);
-  font-weight: 600;
-}
-
-h6 {
-  font-family: var(--font-primary);
-  font-size: clamp(14px, 1.11vw, 16px);
-  font-weight: 400;
-}
-
-/* =========================
-   Links
+   Links / Labels / Buttons
 ========================= */
 
 .link_style {
@@ -194,10 +239,6 @@ h6 {
   font-weight: 700;
   text-decoration: none;
 }
-
-/* =========================
-   Labels
-========================= */
 
 label {
   font-family: var(--font-primary);
@@ -211,10 +252,6 @@ label {
   font-weight: 600;
 }
 
-/* =========================
-   Buttons
-========================= */
-
 button {
   font-family: var(--font-button);
   font-size: 16px;
@@ -223,7 +260,7 @@ button {
   cursor: pointer;
 }
 
-.button_style{
+.button_style {
   padding-block: 10.5px;
   border-radius: 12px;
 }
