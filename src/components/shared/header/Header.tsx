@@ -2,13 +2,14 @@ import { Phone, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import Logo from '../Logo'
 import Navbar from './Navbar'
+import ThemeToggle from './ThemeToggle'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
         <header className='w-full'>
-            <div className='container mx-auto flex items-center justify-between gap-4' style={{paddingBlock: '24px'}}>
+            <div className='container mx-auto flex items-center justify-between gap-4' style={{ paddingBlock: '24px' }}>
                 {/* Logo */}
                 <div className='shrink-0'>
                     <Logo />
@@ -19,7 +20,7 @@ const Header = () => {
                     <Navbar />
                 </div>
 
-                {/* Contact Info + Mobile Menu Button */}
+                {/* Contact Info + Theme Toggle + Mobile Menu Button */}
                 <div className='flex items-center gap-3'>
                     {/* Contact Info */}
                     <div className="flex items-start gap-2 sm:gap-3">
@@ -35,6 +36,9 @@ const Header = () => {
                             </p>
                         </div>
                     </div>
+
+                    {/* Theme Toggle */}
+                    <ThemeToggle />
 
                     {/* Mobile Menu Toggle Button */}
                     <button
@@ -54,7 +58,7 @@ const Header = () => {
             {/* Mobile Menu Dropdown */}
             {isMenuOpen && (
                 <div className='lg:hidden border-t border-gray-200 bg-white shadow-md'>
-                    <div className='container mx-auto' style={{paddingTop: '24px'}}>
+                    <div className='container mx-auto' style={{ paddingTop: '24px' }}>
                         <Navbar />
                     </div>
                 </div>
